@@ -19,11 +19,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    static MainWindow *ptr;
+    static QGraphicsScene* ptr;
+    static QGraphicsScene* ScenePtr();
     static void setMainWindow (MainWindow *ptr);
     MainWindow(QWidget *parent = nullptr);
 
     ~MainWindow();
+
 signals:
     void on_pushButton_clicked();
 private slots:

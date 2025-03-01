@@ -4,6 +4,10 @@
 Square::Square() {}
 
 Square* Square::SquareAdress = nullptr;
+QGraphicsEllipseItem *point = nullptr;
+//QGraphicsScene* ptr = MainWindow::ScenePtr();
+
+
 
 void Square::GetSquarePointer()
 {
@@ -12,11 +16,16 @@ void Square::GetSquarePointer()
     update();
 }
 
+void Square::SetSize()
+{
+    RectSize = 60;
+}
+
 
 
 QRectF Square::boundingRect() const
 {
-    return QRectF(-25,-25,50,50);
+    return QRectF(-(RectSize/2),-(RectSize/2),RectSize,RectSize);
 }
 
 
@@ -24,7 +33,7 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
-
+    //Square::SetSize();
     QPen pen(Qt::darkCyan, 1);
     painter->setPen(pen);
     painter -> setBrush(Qt::blue);
@@ -46,14 +55,40 @@ void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    Q_UNUSED(event);
+    //Q_UNUSED(event);
     //initialPos = scenePos();
-    this -> setCursor(QCursor(Qt::ClosedHandCursor));
-    if (Square::SquareAdress != nullptr) {
-        Square::SquareAdress -> isSelected = false;
-        Square::SquareAdress->update();
+    if (event -> button() == Qt::LeftButton) {
+        this -> setCursor(QCursor(Qt::ClosedHandCursor));
+        if (Square::SquareAdress != nullptr) { // для обнуления при выделении другой фигуры просто проверять статические указатели на все другие объекты
+            Square::SquareAdress -> isSelected = false;
+            Square::SquareAdress->update();
+        }
+        this -> GetSquarePointer();
     }
-    this -> GetSquarePointer();
+    if (event -> button() == Qt::RightButton) {
+        if (point == nullptr) {
+            QPointF center = boundingRect().center();
+            point = new QGraphicsEllipseItem(
+                center.x() - 2.5,
+                center.y() - 2.5,
+                5,5,
+                this
+            );
+            point -> setBrush(Qt::black);
+        }
+        else
+        {
+            QGraphicsScene* ScenePtr = MainWindow::ScenePtr();
+            if (ScenePtr)
+            {
+                ScenePtr->removeItem(point);
+                point = nullptr;
+                qDebug() << "efsfgsgweg";
+                Square::SquareAdress -> update();
+            }
+        }
+
+    }
 }
 
 void Square::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)

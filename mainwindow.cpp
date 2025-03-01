@@ -1,11 +1,13 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-void MainWindow::setMainWindow(MainWindow *ptr1)
-{
 
+QGraphicsScene* MainWindow::ScenePtr()
+{
+    return ptr;
 }
-MainWindow* MainWindow::ptr = nullptr;
+QGraphicsScene* MainWindow::ptr = nullptr;
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -14,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     this -> resize(1020,830);
     this -> setFixedSize(1020,830);
     MainScene = new QGraphicsScene;
+    ptr = MainScene;
     MainScene -> setSceneRect(0,0,500,610);
     ui->graphicsView->setScene(MainScene);
     connect(ui->AddFigure, &QPushButton::clicked, this, &MainWindow::handleButtonClick);
@@ -29,15 +32,8 @@ MainWindow::~MainWindow()
 void MainWindow::handleButtonClick()
 {
     square = new Square;
+    square -> SetSize();
     MainScene -> addItem(square);
     square -> setPos(200,150);
 }
 
-
-
-
-/*void MainWindow::DeleteButtonSignal()
-{
-
-}
-*/

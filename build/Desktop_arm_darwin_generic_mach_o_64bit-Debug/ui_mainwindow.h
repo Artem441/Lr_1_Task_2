@@ -90,7 +90,7 @@ public:
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(10, 0, 231, 69));
+        groupBox_2->setGeometry(QRect(10, -2, 231, 71));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName("gridLayout_2");
         AddFigure = new QPushButton(groupBox_2);
