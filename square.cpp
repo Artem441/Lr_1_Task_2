@@ -1,13 +1,15 @@
 #include "square.h"
+#include "mainwindow.h"
 
 Square::Square() {}
 
+Square* Square::SquareAdress = nullptr;
+
 void Square::GetSquarePointer()
 {
-    Square *SquareAdress = this;
-    isSelected = true;
+    Square::SquareAdress = this;
+    Square::isSelected = true;
     update();
-    qDebug() << SquareAdress;
 }
 
 
@@ -22,13 +24,13 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
-    if (isSelected == false) {
-        QPen pen(Qt::darkCyan, 1);
-        painter->setPen(pen);
-        painter -> setBrush(Qt::blue);
-        painter->drawRect(boundingRect());
-    }
-    else {
+
+    QPen pen(Qt::darkCyan, 1);
+    painter->setPen(pen);
+    painter -> setBrush(Qt::blue);
+    painter->drawRect(boundingRect());
+
+    if (isSelected == true) {
         QPen pen(Qt::red, 3);
         painter->setPen(pen);
         painter -> setBrush(Qt::blue);
@@ -47,10 +49,11 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
     Q_UNUSED(event);
     //initialPos = scenePos();
     this -> setCursor(QCursor(Qt::ClosedHandCursor));
+    if (Square::SquareAdress != nullptr) {
+        Square::SquareAdress -> isSelected = false;
+        Square::SquareAdress->update();
+    }
     this -> GetSquarePointer();
-
-
-
 }
 
 void Square::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)

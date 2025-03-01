@@ -10,12 +10,14 @@
 #include <QGraphicsSceneMouseEvent>
 #include <QCursor>
 #include <QGraphicsScene>
+#include <QStyleOptionGraphicsItem>
 
 class Square : public Figure
 {
 public:
     Square();
-    static Square* selectedSquare;
+    static Square* SquareAdress;
+    //void onSquareSelected(Square* selectedSquare);
     void GetSquarePointer(); // функция взятия адресса квадрата
     //void highlight(bool enable);
     //void deselect();
@@ -29,7 +31,7 @@ protected:
     QPen pen;
 private:
 //QPointF initialPos;
-    double RectSize;
+    //double RectSize;
     bool isSelected = false;
 
 public slots:

@@ -17,8 +17,6 @@ MainWindow::MainWindow(QWidget *parent)
     MainScene -> setSceneRect(0,0,500,610);
     ui->graphicsView->setScene(MainScene);
     connect(ui->AddFigure, &QPushButton::clicked, this, &MainWindow::handleButtonClick);
-    //square = new Square;
-    //MainScene -> addItem(square);
 
 }
 
@@ -34,6 +32,7 @@ void MainWindow::handleButtonClick()
     MainScene -> addItem(square);
     square -> setPos(200,150);
 }
+
 
 
 
