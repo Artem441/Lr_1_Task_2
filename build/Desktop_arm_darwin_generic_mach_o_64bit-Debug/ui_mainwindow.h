@@ -46,6 +46,10 @@ public:
     QLabel *label;
     QSlider *horizontalSlider;
     QLabel *label_2;
+    QSpinBox *spinBox_Y;
+    QSpinBox *spinBox_X;
+    QLabel *label_3;
+    QLabel *label_4;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -62,7 +66,7 @@ public:
         graphicsView->viewport()->setProperty("cursor", QVariant(QCursor(Qt::CursorShape::PointingHandCursor)));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(900, 100, 158, 281));
+        groupBox->setGeometry(QRect(900, 350, 158, 281));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName("gridLayout");
         pushButton_2 = new QPushButton(groupBox);
@@ -126,6 +130,21 @@ public:
         label_2 = new QLabel(centralwidget);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(480, 0, 151, 31));
+        spinBox_Y = new QSpinBox(centralwidget);
+        spinBox_Y->setObjectName("spinBox_Y");
+        spinBox_Y->setGeometry(QRect(940, 140, 71, 41));
+        spinBox_Y->setMaximum(584);
+        spinBox_X = new QSpinBox(centralwidget);
+        spinBox_X->setObjectName("spinBox_X");
+        spinBox_X->setGeometry(QRect(940, 90, 71, 41));
+        spinBox_X->setMinimum(-135);
+        spinBox_X->setMaximum(635);
+        label_3 = new QLabel(centralwidget);
+        label_3->setObjectName("label_3");
+        label_3->setGeometry(QRect(910, 90, 31, 41));
+        label_4 = new QLabel(centralwidget);
+        label_4->setObjectName("label_4");
+        label_4->setGeometry(QRect(910, 140, 41, 41));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -155,6 +174,8 @@ public:
         DeleteFigure->setText(QCoreApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\320\240\320\260\320\267\320\274\320\265\321\200 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "\320\243\320\263\320\276\320\273 \320\277\320\276\320\262\320\276\321\200\320\276\321\202\320\260 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));
+        label_3->setText(QCoreApplication::translate("MainWindow", "X  :", nullptr));
+        label_4->setText(QCoreApplication::translate("MainWindow", "Y  :", nullptr));
     } // retranslateUi
 
 };

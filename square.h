@@ -24,14 +24,24 @@ public:
     QGraphicsEllipseItem *point;
     void GetSquarePointer(); // функция взятия адресса квадрата
     void setSquareSize(int size);
+    void setSquareAngle(int angle);
+    void setY(int y);
+    void setX(int x);
     int getSqareSize();
+    int getSquareAngle();
+    int getY();
+    int getX();
+
     void setMainWindow(MainWindow* mainWindow);
 
 
 
 protected:
     QRectF boundingRect() const override;
-    double RectSize; // размер квадрата
+    int X;
+    int Y;
+    int RectSize; // размер квадрата
+    int RectAngle; // угол поворота
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override; // 3 метода для левой кнопки

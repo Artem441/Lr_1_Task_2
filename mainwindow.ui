@@ -31,7 +31,7 @@
     <property name="geometry">
      <rect>
       <x>900</x>
-      <y>100</y>
+      <y>350</y>
       <width>158</width>
       <height>281</height>
      </rect>
@@ -169,6 +169,61 @@
     </property>
     <property name="text">
      <string>Угол поворота объекта</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_Y">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>140</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="maximum">
+     <number>584</number>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spinBox_X">
+    <property name="geometry">
+     <rect>
+      <x>940</x>
+      <y>90</y>
+      <width>71</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="minimum">
+     <number>-135</number>
+    </property>
+    <property name="maximum">
+     <number>635</number>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>90</y>
+      <width>31</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>X  :</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>910</x>
+      <y>140</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Y  :</string>
     </property>
    </widget>
   </widget>

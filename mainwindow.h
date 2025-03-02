@@ -5,6 +5,7 @@
 #include <QMainWindow>
 #include <QGraphicsScene>
 #include <QWidget>
+#include <QSlider>
 
 class Square;
 
@@ -26,6 +27,12 @@ public:
     MainWindow(QWidget *parent = nullptr);
     void setspinBoxValue(Square* SquareAdress);
     int getspinBoxValue() const;
+    void sethorizontalSliderValue(Square* SquareAdress);
+    int gethorizontalSliderValue() const;
+    void setValueY(Square* SquareAdress);
+    int getValueY() const;
+    void setValueX(Square* SquareAdress);
+    int getValueX() const;
 
     ~MainWindow();
 
@@ -34,6 +41,12 @@ signals:
 private slots:
     void handleButtonClick();
     void on_spinBox_valueChanged(int arg1);
+
+    void on_horizontalSlider_valueChanged(int value);
+
+    void on_spinBox_Y_valueChanged(int arg1);
+
+    void on_spinBox_X_valueChanged(int arg1);
 
 private:
     Ui::MainWindow *ui;

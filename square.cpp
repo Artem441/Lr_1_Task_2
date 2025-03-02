@@ -23,8 +23,41 @@ int Square::getSqareSize()
     return RectSize;
 }
 
+int Square::getSquareAngle()
+{
+    return RectAngle;
+}
+
+int Square::getY()
+{
+    return Square::SquareAdress -> y();
+}
+
+int Square::getX()
+{
+    return Square::SquareAdress -> x();
+}
+
 void Square::setSquareSize(int size) {
     RectSize = size;
+    update();
+}
+
+void Square::setSquareAngle(int angle)
+{
+    RectAngle = angle;
+    update();
+}
+
+void Square::setY(int y)
+{
+    setPos(Square::SquareAdress->x(), y);
+    update();
+}
+
+void Square::setX(int x)
+{
+    setPos(x ,Square::SquareAdress->y());
     update();
 }
 
@@ -56,6 +89,10 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
 void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setPos(mapToScene(event -> pos()));
+    MainWindow* mainWindow = MainWindow::getMainWindow();
+    mainWindow -> sethorizontalSliderValue(square);
+    mainWindow->setValueY(Square::SquareAdress);
+    mainWindow->setValueX(Square::SquareAdress);
 }
 
 void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
@@ -72,6 +109,10 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
         this -> GetSquarePointer();
         square = Square::SquareAdress;
         mainWindow -> setspinBoxValue(square); // обновляю значение спин бокса для нового тела
+        mainWindow -> sethorizontalSliderValue(square);
+        mainWindow -> setValueY(square);
+        mainWindow -> setValueX(square);
+
     }
     if (event -> button() == Qt::RightButton) {
         if (point == nullptr) {
