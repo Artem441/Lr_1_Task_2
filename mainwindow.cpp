@@ -34,6 +34,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->graphicsView->setScene(MainScene);
     connect(ui->AddFigure, &QPushButton::clicked, this, &MainWindow::handleButtonClick);
     ui -> horizontalSlider -> setRange(0,360);
+    ui->doubleSpinBox_S->setReadOnly(true);
+    ui->doubleSpinBox_P->setReadOnly(true);
 
 }
 
@@ -92,6 +94,18 @@ int MainWindow::getValueX() const
     return -1;
 }
 
+void MainWindow::updateS(double s)
+{
+    ui->doubleSpinBox_S->setValue(s);
+    ui->doubleSpinBox_S->update();
+}
+
+void MainWindow::updateP(double p)
+{
+    ui->doubleSpinBox_P->setValue(p);
+    ui->doubleSpinBox_P->update();
+}
+
 
 void MainWindow::setspinBoxValue(Square* SquareAdress)
 {
@@ -122,6 +136,10 @@ void MainWindow::on_spinBox_valueChanged(int arg1)
 {
     if (Square::SquareAdress != nullptr) {
         Square::SquareAdress -> setSquareSize(arg1);
+        ui -> doubleSpinBox_S -> setValue(Square::SquareAdress->getS());
+        ui->doubleSpinBox_S->update();
+        ui -> doubleSpinBox_P -> setValue(Square::SquareAdress->getP());
+        ui->doubleSpinBox_P->update();
         Square::SquareAdress->update();
     }
 }

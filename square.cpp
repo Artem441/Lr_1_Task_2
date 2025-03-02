@@ -38,6 +38,30 @@ int Square::getX()
     return Square::SquareAdress -> x();
 }
 
+double Square::getP()
+{
+    return 4 * (Square::SquareAdress->RectSize);
+}
+
+double Square::getS()
+{
+    return (Square::SquareAdress->RectSize) * (Square::SquareAdress->RectSize);
+}
+
+void Square::setS(double s)
+{
+    Square::SquareAdress->S = s;
+    Square::SquareAdress->update();
+}
+
+void Square::setP(double p)
+{
+    Square::SquareAdress->P = p;
+    Square::SquareAdress->update();
+}
+
+
+
 void Square::setSquareSize(int size) {
     RectSize = size;
     update();
@@ -112,6 +136,10 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
         mainWindow -> sethorizontalSliderValue(square);
         mainWindow -> setValueY(square);
         mainWindow -> setValueX(square);
+        mainWindow->updateS(getS());
+        mainWindow->updateP(getP());
+
+
 
     }
     if (event -> button() == Qt::RightButton) {

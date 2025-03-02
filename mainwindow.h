@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include <QWidget>
 #include <QSlider>
+#include <QDoubleSpinBox>
 
 class Square;
 
@@ -33,6 +34,8 @@ public:
     int getValueY() const;
     void setValueX(Square* SquareAdress);
     int getValueX() const;
+    void updateS(double s);
+    void updateP(double p);
 
     ~MainWindow();
 

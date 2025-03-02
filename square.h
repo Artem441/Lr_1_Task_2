@@ -12,6 +12,7 @@
 #include <QGraphicsScene>
 #include <QStyleOptionGraphicsItem>
 #include <QGraphicsEllipseItem>
+#include <QDoubleSpinBox>
 
 class MainWindow;
 
@@ -31,6 +32,10 @@ public:
     int getSquareAngle();
     int getY();
     int getX();
+    double getP();
+    double getS();
+    void setS(double s);
+    void setP(double p);
 
     void setMainWindow(MainWindow* mainWindow);
 
@@ -42,6 +47,8 @@ protected:
     int Y;
     int RectSize; // размер квадрата
     int RectAngle; // угол поворота
+    double S;
+    double P;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override; // 3 метода для левой кнопки
@@ -52,6 +59,8 @@ private:
     bool isSelected = false; // обработка
     MainWindow* mainWindow;
     Square* square;
+    QDoubleSpinBox *spinBoxS;
+
 
 
 public slots:

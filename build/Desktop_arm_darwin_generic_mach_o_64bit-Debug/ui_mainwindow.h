@@ -11,6 +11,7 @@
 
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QDoubleSpinBox>
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
@@ -50,6 +51,10 @@ public:
     QSpinBox *spinBox_X;
     QLabel *label_3;
     QLabel *label_4;
+    QLabel *label_5;
+    QDoubleSpinBox *doubleSpinBox_S;
+    QLabel *label_7;
+    QDoubleSpinBox *doubleSpinBox_P;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -145,6 +150,20 @@ public:
         label_4 = new QLabel(centralwidget);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(910, 140, 41, 41));
+        label_5 = new QLabel(centralwidget);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(900, 210, 71, 41));
+        doubleSpinBox_S = new QDoubleSpinBox(centralwidget);
+        doubleSpinBox_S->setObjectName("doubleSpinBox_S");
+        doubleSpinBox_S->setGeometry(QRect(980, 210, 71, 41));
+        doubleSpinBox_S->setMaximum(62500.000000000000000);
+        label_7 = new QLabel(centralwidget);
+        label_7->setObjectName("label_7");
+        label_7->setGeometry(QRect(900, 260, 71, 41));
+        doubleSpinBox_P = new QDoubleSpinBox(centralwidget);
+        doubleSpinBox_P->setObjectName("doubleSpinBox_P");
+        doubleSpinBox_P->setGeometry(QRect(980, 260, 71, 41));
+        doubleSpinBox_P->setMaximum(1000.000000000000000);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -176,6 +195,8 @@ public:
         label_2->setText(QCoreApplication::translate("MainWindow", "\320\243\320\263\320\276\320\273 \320\277\320\276\320\262\320\276\321\200\320\276\321\202\320\260 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "X  :", nullptr));
         label_4->setText(QCoreApplication::translate("MainWindow", "Y  :", nullptr));
+        label_5->setText(QCoreApplication::translate("MainWindow", "\320\237\320\273\320\276\321\211\320\260\320\264\321\214   :", nullptr));
+        label_7->setText(QCoreApplication::translate("MainWindow", "\320\237\320\265\321\200\320\270\320\274\320\265\321\202\321\200 :", nullptr));
     } // retranslateUi
 
 };
