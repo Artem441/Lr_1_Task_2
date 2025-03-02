@@ -14,9 +14,12 @@
 #include <QtWidgets/QGraphicsView>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSlider>
+#include <QtWidgets/QSpinBox>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
 
@@ -39,6 +42,10 @@ public:
     QGridLayout *gridLayout_2;
     QPushButton *AddFigure;
     QPushButton *DeleteFigure;
+    QSpinBox *spinBox;
+    QLabel *label;
+    QSlider *horizontalSlider;
+    QLabel *label_2;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -46,16 +53,16 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName("MainWindow");
-        MainWindow->resize(1016, 771);
+        MainWindow->resize(1082, 771);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         graphicsView = new QGraphicsView(centralwidget);
         graphicsView->setObjectName("graphicsView");
-        graphicsView->setGeometry(QRect(10, 70, 830, 620));
+        graphicsView->setGeometry(QRect(30, 90, 830, 620));
         graphicsView->viewport()->setProperty("cursor", QVariant(QCursor(Qt::CursorShape::PointingHandCursor)));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(850, 100, 158, 281));
+        groupBox->setGeometry(QRect(900, 100, 158, 281));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName("gridLayout");
         pushButton_2 = new QPushButton(groupBox);
@@ -90,7 +97,7 @@ public:
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
-        groupBox_2->setGeometry(QRect(10, -2, 231, 71));
+        groupBox_2->setGeometry(QRect(20, 0, 231, 71));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName("gridLayout_2");
         AddFigure = new QPushButton(groupBox_2);
@@ -103,10 +110,26 @@ public:
 
         gridLayout_2->addWidget(DeleteFigure, 0, 1, 1, 1);
 
+        spinBox = new QSpinBox(centralwidget);
+        spinBox->setObjectName("spinBox");
+        spinBox->setGeometry(QRect(940, 30, 71, 41));
+        spinBox->setMaximum(250);
+        spinBox->setSingleStep(2);
+        spinBox->setValue(60);
+        label = new QLabel(centralwidget);
+        label->setObjectName("label");
+        label->setGeometry(QRect(920, 0, 101, 31));
+        horizontalSlider = new QSlider(centralwidget);
+        horizontalSlider->setObjectName("horizontalSlider");
+        horizontalSlider->setGeometry(QRect(270, 40, 591, 25));
+        horizontalSlider->setOrientation(Qt::Orientation::Horizontal);
+        label_2 = new QLabel(centralwidget);
+        label_2->setObjectName("label_2");
+        label_2->setGeometry(QRect(480, 0, 151, 31));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 1016, 36));
+        menubar->setGeometry(QRect(0, 0, 1082, 36));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -130,6 +153,8 @@ public:
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "\320\244\321\203\320\275\320\272\321\206\320\270\320\270", nullptr));
         AddFigure->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
         DeleteFigure->setText(QCoreApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "\320\240\320\260\320\267\320\274\320\265\321\200 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "\320\243\320\263\320\276\320\273 \320\277\320\276\320\262\320\276\321\200\320\276\321\202\320\260 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));
     } // retranslateUi
 
 };

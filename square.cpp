@@ -1,10 +1,12 @@
 #include "square.h"
 #include "mainwindow.h"
+//#include "ui_mainwindow.h"
 
 Square::Square() {}
 
 Square* Square::SquareAdress = nullptr;
 QGraphicsEllipseItem *point = nullptr;
+//MainWindow* mainWindow = MainWindow::getMainWindow();
 //QGraphicsScene* ptr = MainWindow::ScenePtr();
 
 
@@ -16,12 +18,15 @@ void Square::GetSquarePointer()
     update();
 }
 
-void Square::SetSize()
+int Square::getSqareSize()
 {
-    RectSize = 60;
+    return RectSize;
 }
 
-
+void Square::setSquareSize(int size) {
+    RectSize = size;
+    update();
+}
 
 QRectF Square::boundingRect() const
 {
@@ -40,7 +45,7 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     painter->drawRect(boundingRect());
 
     if (isSelected == true) {
-        QPen pen(Qt::red, 3);
+        QPen pen(Qt::red, 1);
         painter->setPen(pen);
         painter -> setBrush(Qt::blue);
         painter->drawRect(boundingRect());
@@ -57,6 +62,7 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     //Q_UNUSED(event);
     //initialPos = scenePos();
+    MainWindow* mainWindow = MainWindow::getMainWindow();
     if (event -> button() == Qt::LeftButton) {
         this -> setCursor(QCursor(Qt::ClosedHandCursor));
         if (Square::SquareAdress != nullptr) { // для обнуления при выделении другой фигуры просто проверять статические указатели на все другие объекты
@@ -64,6 +70,8 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
             Square::SquareAdress->update();
         }
         this -> GetSquarePointer();
+        square = Square::SquareAdress;
+        mainWindow -> setspinBoxValue(square); // обновляю значение спин бокса для нового тела
     }
     if (event -> button() == Qt::RightButton) {
         if (point == nullptr) {
@@ -83,12 +91,12 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
             {
                 ScenePtr->removeItem(point);
                 point = nullptr;
-                qDebug() << "efsfgsgweg";
                 Square::SquareAdress -> update();
             }
         }
 
     }
+
 }
 
 void Square::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)

@@ -2,8 +2,7 @@
 #define SQUARE_H
 
 #include "figure.h"
-
-
+//#include "mainwindow.h"
 
 #include <QObject>
 #include <QGraphicsItem>
@@ -14,6 +13,8 @@
 #include <QStyleOptionGraphicsItem>
 #include <QGraphicsEllipseItem>
 
+class MainWindow;
+
 class Square : public Figure
 {
 public:
@@ -22,7 +23,10 @@ public:
     static Square* SquareAdress;
     QGraphicsEllipseItem *point;
     void GetSquarePointer(); // функция взятия адресса квадрата
-    void SetSize();
+    void setSquareSize(int size);
+    int getSqareSize();
+    void setMainWindow(MainWindow* mainWindow);
+
 
 
 protected:
@@ -36,6 +40,9 @@ protected:
     QPen pen;
 private:
     bool isSelected = false; // обработка
+    MainWindow* mainWindow;
+    Square* square;
+
 
 public slots:
 
