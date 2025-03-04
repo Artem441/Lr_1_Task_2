@@ -4,11 +4,7 @@
 
 Square::Square() {}
 
-
 QGraphicsEllipseItem *point = nullptr;
-//Figure* FigureAdress = nullptr;
-//MainWindow* mainWindow = MainWindow::getMainWindow();
-//QGraphicsScene* ptr = MainWindow::ScenePtr();
 
 double Square::getP()
 {
@@ -33,13 +29,13 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     //Square::SetSize();
     QPen pen(Qt::darkCyan, 1);
     painter->setPen(pen);
-    painter -> setBrush(Qt::blue);
+    painter -> setBrush(Qt::darkMagenta);
     painter->drawRect(boundingRect());
 
     if (isSelected == true) {
         QPen pen(Qt::red, 1);
         painter->setPen(pen);
-        painter -> setBrush(Qt::blue);
+        painter -> setBrush(Qt::darkBlue);
         painter->drawRect(boundingRect());
     }
 
@@ -56,8 +52,6 @@ void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 
 void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
-    //Q_UNUSED(event);
-    //initialPos = scenePos();
     MainWindow* mainWindow = MainWindow::getMainWindow();
     if (event -> button() == Qt::LeftButton) {
         this -> setCursor(QCursor(Qt::ClosedHandCursor));

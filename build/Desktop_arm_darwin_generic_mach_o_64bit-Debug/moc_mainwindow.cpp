@@ -48,7 +48,9 @@ static constexpr auto qt_meta_stringdata_ZN10MainWindowE = QtMocHelpers::stringD
     "on_spinBox_Y_valueChanged",
     "on_spinBox_X_valueChanged",
     "on_DeleteFigure_clicked",
-    "on_AddCircle_clicked"
+    "on_AddCircle_clicked",
+    "on_AddRectangle_clicked",
+    "on_AddEllipse_clicked"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -60,7 +62,7 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
       12,       // revision
        0,       // classname
        0,    0, // classinfo
-       8,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -68,16 +70,18 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
        1,       // signalCount
 
  // signals: name, argc, parameters, tag, flags, initial metatype offsets
-       1,    0,   62,    2, 0x06,    1 /* Public */,
+       1,    0,   74,    2, 0x06,    1 /* Public */,
 
  // slots: name, argc, parameters, tag, flags, initial metatype offsets
-       3,    0,   63,    2, 0x08,    2 /* Private */,
-       4,    1,   64,    2, 0x08,    3 /* Private */,
-       6,    1,   67,    2, 0x08,    5 /* Private */,
-       8,    1,   70,    2, 0x08,    7 /* Private */,
-       9,    1,   73,    2, 0x08,    9 /* Private */,
-      10,    0,   76,    2, 0x08,   11 /* Private */,
-      11,    0,   77,    2, 0x08,   12 /* Private */,
+       3,    0,   75,    2, 0x08,    2 /* Private */,
+       4,    1,   76,    2, 0x08,    3 /* Private */,
+       6,    1,   79,    2, 0x08,    5 /* Private */,
+       8,    1,   82,    2, 0x08,    7 /* Private */,
+       9,    1,   85,    2, 0x08,    9 /* Private */,
+      10,    0,   88,    2, 0x08,   11 /* Private */,
+      11,    0,   89,    2, 0x08,   12 /* Private */,
+      12,    0,   90,    2, 0x08,   13 /* Private */,
+      13,    0,   91,    2, 0x08,   14 /* Private */,
 
  // signals: parameters
     QMetaType::Void,
@@ -88,6 +92,8 @@ Q_CONSTINIT static const uint qt_meta_data_ZN10MainWindowE[] = {
     QMetaType::Void, QMetaType::Int,    7,
     QMetaType::Void, QMetaType::Int,    5,
     QMetaType::Void, QMetaType::Int,    5,
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
 
@@ -122,6 +128,10 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         // method 'on_DeleteFigure_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_AddCircle_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_AddRectangle_clicked'
+        QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        // method 'on_AddEllipse_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>
     >,
     nullptr
@@ -140,6 +150,8 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 5: _t->on_spinBox_X_valueChanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 6: _t->on_DeleteFigure_clicked(); break;
         case 7: _t->on_AddCircle_clicked(); break;
+        case 8: _t->on_AddRectangle_clicked(); break;
+        case 9: _t->on_AddEllipse_clicked(); break;
         default: ;
         }
     }
@@ -174,14 +186,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 8)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 8;
+        _id -= 10;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 8)
+        if (_id < 10)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 8;
+        _id -= 10;
     }
     return _id;
 }

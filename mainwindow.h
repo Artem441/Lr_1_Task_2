@@ -11,6 +11,8 @@
 class Square;
 class Circle;
 class Figure;
+class Rectangle;
+class Ellipse;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -57,11 +59,17 @@ private slots:
 
     void on_AddCircle_clicked();
 
+    void on_AddRectangle_clicked();
+
+    void on_AddEllipse_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *MainScene;
     Square *square;
     Circle *circle;
+    Rectangle *rectangle;
+    Ellipse *ellipse;
 
     static MainWindow* mainWindow;
 };

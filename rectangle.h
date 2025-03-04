@@ -1,7 +1,8 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 
 #include "figure.h"
+
 
 #include <QObject>
 #include <QGraphicsItem>
@@ -15,10 +16,11 @@
 
 class MainWindow;
 
-class Circle : public Figure
+class Rectangle : public Figure
 {
 public:
-    Circle();
+    Rectangle();
+
     double getP() override;
     double getS() override;
 
@@ -28,8 +30,6 @@ protected:
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event) override;
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override; // 3 метода для левой кнопки
     void mouseReleaseEvent(QGraphicsSceneMouseEvent *event) override;
-
 };
 
-#endif // CIRCLE_H
-
+#endif // RECTANGLE_H

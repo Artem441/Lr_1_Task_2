@@ -11,15 +11,19 @@ CONFIG += c++17
 
 SOURCES += \
     circle.cpp \
+    ellipse.cpp \
     figure.cpp \
     main.cpp \
     mainwindow.cpp \
+    rectangle.cpp \
     square.cpp
 
 HEADERS += \
     circle.h \
+    ellipse.h \
     figure.h \
     mainwindow.h \
+    rectangle.h \
     square.h
 
 FORMS += \

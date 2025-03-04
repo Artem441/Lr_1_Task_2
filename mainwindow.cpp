@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "square.h"
 #include "circle.h"
+#include "rectangle.h"
+#include "ellipse.h"
 
 
 MainWindow* MainWindow::mainWindow = nullptr;
@@ -187,4 +189,22 @@ void MainWindow::on_AddCircle_clicked()
     circle -> setPos(250,150);
 }
 
+
+
+void MainWindow::on_AddRectangle_clicked()
+{
+    rectangle = new Rectangle;
+    rectangle -> setFigureSize(80);
+    MainScene -> addItem(rectangle);
+    rectangle -> setPos(350,200);
+}
+
+
+void MainWindow::on_AddEllipse_clicked()
+{
+    ellipse = new Ellipse;
+    ellipse -> setFigureSize(100);
+    MainScene -> addItem(ellipse);
+    ellipse -> setPos(350,250);
+}
 

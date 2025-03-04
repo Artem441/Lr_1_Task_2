@@ -1,43 +1,41 @@
-#include "circle.h"
+#include "ellipse.h"
 #include "mainwindow.h"
+#include <cmath>
 
-Circle::Circle() {}
+Ellipse::Ellipse() {}
 
-double Circle::getP()
+double Ellipse::getP()
 {
-    return (6.28*FigureSize);
+    return (4.0 / ((FigureSize/2.0) + (FigureSize/4.0))) * (((FigureSize/2.0) * (FigureSize/4.0) * 3.14)  + (FigureSize/2.0 - FigureSize/4.0));
 }
 
-double Circle::getS()
+double Ellipse::getS()
 {
-    return (3.14*FigureSize*FigureSize);
+    return (3.14*FigureSize/2*FigureSize/4);
 }
 
-//QGraphicsEllipseItem *point = nullptr;
-
-QRectF Circle::boundingRect() const
+QRectF Ellipse::boundingRect() const
 {
-    return QRectF(-(FigureSize/2),(-FigureSize/2),FigureSize,FigureSize);
+    return QRectF(-(FigureSize/2),(-FigureSize/4),FigureSize,FigureSize/2);
 }
 
-void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Ellipse::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
     QPen pen(Qt::darkBlue, 1);
     painter->setPen(pen);
     painter -> setBrush(Qt::darkMagenta);
-    painter -> drawEllipse(-(FigureSize/2),(-FigureSize/2),FigureSize,FigureSize);
+    painter -> drawEllipse(-(FigureSize/2),(-FigureSize/4),FigureSize,FigureSize/2);
     if (isSelected == true) {
         QPen pen(Qt::red, 1);
         painter->setPen(pen);
         painter -> setBrush(Qt::darkBlue);
-        painter -> drawEllipse(-(FigureSize/2),(-FigureSize/2),FigureSize,FigureSize);
+        painter -> drawEllipse(-(FigureSize/2),(-FigureSize/4),FigureSize,FigureSize/2);
     }
-
 }
 
-void Circle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void Ellipse::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setPos(mapToScene(event -> pos()));
     MainWindow* mainWindow = MainWindow::getMainWindow();
@@ -46,7 +44,7 @@ void Circle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     mainWindow->setValueX(Figure::FigureAdress);
 }
 
-void Circle::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Ellipse::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     MainWindow* mainWindow = MainWindow::getMainWindow();
     if (event -> button() == Qt::LeftButton) {
@@ -90,11 +88,9 @@ void Circle::mousePressEvent(QGraphicsSceneMouseEvent *event)
         }
 
     }
-
 }
 
-
-void Circle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void Ellipse::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setCursor(QCursor(Qt::ArrowCursor));
     Q_UNUSED(event);

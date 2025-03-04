@@ -1,5 +1,5 @@
-#ifndef CIRCLE_H
-#define CIRCLE_H
+#ifndef ELLIPSE_H
+#define ELLIPSE_H
 
 #include "figure.h"
 
@@ -15,10 +15,10 @@
 
 class MainWindow;
 
-class Circle : public Figure
+class Ellipse : public Figure
 {
 public:
-    Circle();
+    Ellipse();
     double getP() override;
     double getS() override;
 
@@ -31,5 +31,4 @@ protected:
 
 };
 
-#endif // CIRCLE_H
-
+#endif // ELLIPSE_H
