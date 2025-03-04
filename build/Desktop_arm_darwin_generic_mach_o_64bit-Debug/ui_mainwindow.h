@@ -33,15 +33,14 @@ public:
     QGraphicsView *graphicsView;
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton;
     QPushButton *pushButton_6;
+    QPushButton *pushButton_4;
+    QPushButton *AddCircle;
+    QPushButton *pushButton_5;
+    QPushButton *pushButton_3;
+    QPushButton *AddSquare;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
-    QPushButton *AddFigure;
     QPushButton *DeleteFigure;
     QSpinBox *spinBox;
     QLabel *label;
@@ -74,46 +73,41 @@ public:
         groupBox->setGeometry(QRect(900, 350, 158, 281));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName("gridLayout");
-        pushButton_2 = new QPushButton(groupBox);
-        pushButton_2->setObjectName("pushButton_2");
+        pushButton_6 = new QPushButton(groupBox);
+        pushButton_6->setObjectName("pushButton_6");
 
-        gridLayout->addWidget(pushButton_2, 3, 0, 1, 1);
+        gridLayout->addWidget(pushButton_6, 2, 0, 1, 1);
 
         pushButton_4 = new QPushButton(groupBox);
         pushButton_4->setObjectName("pushButton_4");
 
         gridLayout->addWidget(pushButton_4, 5, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(groupBox);
-        pushButton_3->setObjectName("pushButton_3");
+        AddCircle = new QPushButton(groupBox);
+        AddCircle->setObjectName("AddCircle");
 
-        gridLayout->addWidget(pushButton_3, 1, 0, 1, 1);
+        gridLayout->addWidget(AddCircle, 3, 0, 1, 1);
 
         pushButton_5 = new QPushButton(groupBox);
         pushButton_5->setObjectName("pushButton_5");
 
         gridLayout->addWidget(pushButton_5, 4, 0, 1, 1);
 
-        pushButton = new QPushButton(groupBox);
-        pushButton->setObjectName("pushButton");
+        pushButton_3 = new QPushButton(groupBox);
+        pushButton_3->setObjectName("pushButton_3");
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(pushButton_3, 1, 0, 1, 1);
 
-        pushButton_6 = new QPushButton(groupBox);
-        pushButton_6->setObjectName("pushButton_6");
+        AddSquare = new QPushButton(groupBox);
+        AddSquare->setObjectName("AddSquare");
 
-        gridLayout->addWidget(pushButton_6, 2, 0, 1, 1);
+        gridLayout->addWidget(AddSquare, 0, 0, 1, 1);
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
         groupBox_2->setGeometry(QRect(20, 0, 231, 71));
         gridLayout_2 = new QGridLayout(groupBox_2);
         gridLayout_2->setObjectName("gridLayout_2");
-        AddFigure = new QPushButton(groupBox_2);
-        AddFigure->setObjectName("AddFigure");
-
-        gridLayout_2->addWidget(AddFigure, 0, 0, 1, 1);
-
         DeleteFigure = new QPushButton(groupBox_2);
         DeleteFigure->setObjectName("DeleteFigure");
 
@@ -182,14 +176,13 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "\320\244\320\270\320\263\321\203\321\200\321\213", nullptr));
-        pushButton_2->setText(QCoreApplication::translate("MainWindow", "\320\232\321\200\321\203\320\263", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "\320\267\320\262\320\265\320\267\320\264\320\260(6)", nullptr));
-        pushButton_3->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\321\217\320\274\320\276\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("MainWindow", "\320\267\320\262\320\265\320\267\320\264\320\260(5)", nullptr));
-        pushButton->setText(QCoreApplication::translate("MainWindow", "\320\232\320\262\320\260\320\264\321\200\320\260\321\202", nullptr));
         pushButton_6->setText(QCoreApplication::translate("MainWindow", "\320\236\320\262\320\260\320\273", nullptr));
+        pushButton_4->setText(QCoreApplication::translate("MainWindow", "\320\267\320\262\320\265\320\267\320\264\320\260(6)", nullptr));
+        AddCircle->setText(QCoreApplication::translate("MainWindow", "\320\232\321\200\321\203\320\263", nullptr));
+        pushButton_5->setText(QCoreApplication::translate("MainWindow", "\320\267\320\262\320\265\320\267\320\264\320\260(5)", nullptr));
+        pushButton_3->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\321\217\320\274\320\276\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
+        AddSquare->setText(QCoreApplication::translate("MainWindow", "\320\232\320\262\320\260\320\264\321\200\320\260\321\202", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "\320\244\321\203\320\275\320\272\321\206\320\270\320\270", nullptr));
-        AddFigure->setText(QCoreApplication::translate("MainWindow", "\320\224\320\276\320\261\320\260\320\262\320\270\321\202\321\214", nullptr));
         DeleteFigure->setText(QCoreApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\320\240\320\260\320\267\320\274\320\265\321\200 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));
         label_2->setText(QCoreApplication::translate("MainWindow", "\320\243\320\263\320\276\320\273 \320\277\320\276\320\262\320\276\321\200\320\276\321\202\320\260 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));

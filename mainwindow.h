@@ -9,6 +9,8 @@
 #include <QDoubleSpinBox>
 
 class Square;
+class Circle;
+class Figure;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -26,13 +28,13 @@ public:
     static void setMainWindow (MainWindow *ptr);
     static MainWindow* getMainWindow();
     MainWindow(QWidget *parent = nullptr);
-    void setspinBoxValue(Square* SquareAdress);
+    void setspinBoxValue(Figure* FigureAdress);
     int getspinBoxValue() const;
-    void sethorizontalSliderValue(Square* SquareAdress);
+    void sethorizontalSliderValue(Figure* FigureAdress);
     int gethorizontalSliderValue() const;
-    void setValueY(Square* SquareAdress);
+    void setValueY(Figure* FigureAdress);
     int getValueY() const;
-    void setValueX(Square* SquareAdress);
+    void setValueX(Figure* FigureAdress);
     int getValueX() const;
     void updateS(double s);
     void updateP(double p);
@@ -51,10 +53,16 @@ private slots:
 
     void on_spinBox_X_valueChanged(int arg1);
 
+    void on_DeleteFigure_clicked();
+
+    void on_AddCircle_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *MainScene;
     Square *square;
+    Circle *circle;
+
     static MainWindow* mainWindow;
 };
 #endif // MAINWINDOW_H

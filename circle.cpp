@@ -1,60 +1,42 @@
-#include "square.h"
+#include "circle.h"
 #include "mainwindow.h"
-//#include "ui_mainwindow.h"
 
-Square::Square() {}
+Circle::Circle() {}
 
+//QGraphicsEllipseItem *point = nullptr;
 
-QGraphicsEllipseItem *point = nullptr;
-//Figure* FigureAdress = nullptr;
-//MainWindow* mainWindow = MainWindow::getMainWindow();
-//QGraphicsScene* ptr = MainWindow::ScenePtr();
-
-double Square::getP()
+QRectF Circle::boundingRect() const
 {
-    return 4 * (Figure::FigureAdress->FigureSize);
+    return QRectF(-(FigureSize/2),(-FigureSize/2),FigureSize,FigureSize);
 }
 
-double Square::getS()
-{
-    return (Figure::FigureAdress->FigureSize) * (Figure::FigureAdress->FigureSize);
-}
-
-QRectF Square::boundingRect() const
-{
-    return QRectF(-(FigureSize/2),-(FigureSize/2),FigureSize,FigureSize);
-}
-
-
-void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Circle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
-    //Square::SetSize();
-    QPen pen(Qt::darkCyan, 1);
+    QPen pen(Qt::darkBlue, 1);
     painter->setPen(pen);
-    painter -> setBrush(Qt::blue);
-    painter->drawRect(boundingRect());
-
+    painter -> setBrush(Qt::darkMagenta);
+    painter -> drawEllipse(-(FigureSize/2),(-FigureSize/2),FigureSize,FigureSize);
     if (isSelected == true) {
         QPen pen(Qt::red, 1);
         painter->setPen(pen);
         painter -> setBrush(Qt::blue);
-        painter->drawRect(boundingRect());
+        painter -> drawEllipse(-(FigureSize/2),(-FigureSize/2),FigureSize,FigureSize);
     }
 
 }
 
-void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void Circle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setPos(mapToScene(event -> pos()));
     MainWindow* mainWindow = MainWindow::getMainWindow();
-    mainWindow -> sethorizontalSliderValue(Figure::FigureAdress);
+    mainWindow -> sethorizontalSliderValue(figure);
     mainWindow->setValueY(Figure::FigureAdress);
     mainWindow->setValueX(Figure::FigureAdress);
 }
 
-void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Circle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     //Q_UNUSED(event);
     //initialPos = scenePos();
@@ -65,8 +47,8 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
             Figure::FigureAdress -> isSelected = false;
             Figure::FigureAdress->update();
         }
-        this->getFigurePointer();
-        figure = Figure::FigureAdress; // нужен объект нельзя через ссылку вызывать
+        this -> Figure::getFigurePointer();
+        figure = Figure::FigureAdress;
         mainWindow -> setspinBoxValue(figure); // обновляю значение спин бокса для нового тела
         mainWindow -> sethorizontalSliderValue(figure);
         mainWindow -> setValueY(figure);
@@ -85,7 +67,7 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 center.y() - 2.5,
                 5,5,
                 this
-            );
+                );
             point -> setBrush(Qt::black);
         }
         else
@@ -98,18 +80,14 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 Figure::FigureAdress -> update();
             }
         }
+
     }
+
 }
 
-void Square::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
-{
 
+void Circle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+{
     this -> setCursor(QCursor(Qt::ArrowCursor));
     Q_UNUSED(event);
 }
-
-
-
-
-
-
