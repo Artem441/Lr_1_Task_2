@@ -1,26 +1,30 @@
-#include "square.h"
+#include "triangle.h"
 #include "mainwindow.h"
+#include <cmath>
 
-Square::Square() {}
+Triangle::Triangle() {}
 
-
-double Square::getP()
+double Triangle::getP()
 {
-    return 4 * (Figure::FigureAdress->FigureSize);
+    return 3 * FigureSize;
 }
 
-double Square::getS()
+double Triangle::getS()
 {
-    return (Figure::FigureAdress->FigureSize) * (Figure::FigureAdress->FigureSize);
+    return pow(FigureSize,2) * sqrt(3) / 4.0;
 }
 
-QRectF Square::boundingRect() const
+QRectF Triangle::boundingRect() const
 {
-    return QRectF(-(FigureSize/2),-(FigureSize/2),FigureSize,FigureSize);
+    return QRectF(
+        -FigureSize / 2,
+        -FigureSize / 2,
+        FigureSize,
+        FigureSize
+        );
 }
 
-
-void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
@@ -28,18 +32,22 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     QPen pen(Qt::darkCyan, 1);
     painter->setPen(pen);
     painter -> setBrush(Qt::darkMagenta);
-    painter->drawRect(boundingRect());
+    QPointF points[3] = {
+        QPointF(0, -FigureSize / 4),
+        QPointF(-FigureSize / 2, FigureSize / 4),
+        QPointF(FigureSize / 2, FigureSize / 4)
+    };
+    painter->drawPolygon(points, 3);
 
     if (isSelected == true) {
         QPen pen(Qt::red, 1);
         painter->setPen(pen);
         painter -> setBrush(Qt::darkBlue);
-        painter->drawRect(boundingRect());
+        painter->drawPolygon(points,3);
     }
-
 }
 
-void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void Triangle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setPos(mapToScene(event -> pos()));
     MainWindow* mainWindow = MainWindow::getMainWindow();
@@ -48,7 +56,7 @@ void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     mainWindow->setValueX(Figure::FigureAdress);
 }
 
-void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Triangle::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     MainWindow* mainWindow = MainWindow::getMainWindow();
     if (event -> button() == Qt::LeftButton) {
@@ -77,7 +85,7 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 center.y() - 2.5,
                 5,5,
                 this
-            );
+                );
             point -> setBrush(Qt::black);
         }
         else
@@ -93,15 +101,8 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
-void Square::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void Triangle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-
     this -> setCursor(QCursor(Qt::ArrowCursor));
     Q_UNUSED(event);
 }
-
-
-
-
-
-

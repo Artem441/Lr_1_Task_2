@@ -33,12 +33,13 @@ public:
     QGraphicsView *graphicsView;
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
-    QPushButton *AddEllipse;
-    QPushButton *pushButton_4;
-    QPushButton *AddCircle;
-    QPushButton *pushButton_5;
-    QPushButton *AddRectangle;
     QPushButton *AddSquare;
+    QPushButton *AddCircle;
+    QPushButton *AddEllipse;
+    QPushButton *AddRhombus;
+    QPushButton *AddRectangle;
+    QPushButton *AddTriangle;
+    QPushButton *AddHexagon;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
     QPushButton *DeleteFigure;
@@ -70,38 +71,43 @@ public:
         graphicsView->viewport()->setProperty("cursor", QVariant(QCursor(Qt::CursorShape::PointingHandCursor)));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(900, 350, 158, 281));
+        groupBox->setGeometry(QRect(900, 320, 158, 351));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName("gridLayout");
-        AddEllipse = new QPushButton(groupBox);
-        AddEllipse->setObjectName("AddEllipse");
+        AddSquare = new QPushButton(groupBox);
+        AddSquare->setObjectName("AddSquare");
 
-        gridLayout->addWidget(AddEllipse, 2, 0, 1, 1);
-
-        pushButton_4 = new QPushButton(groupBox);
-        pushButton_4->setObjectName("pushButton_4");
-
-        gridLayout->addWidget(pushButton_4, 5, 0, 1, 1);
+        gridLayout->addWidget(AddSquare, 0, 0, 1, 1);
 
         AddCircle = new QPushButton(groupBox);
         AddCircle->setObjectName("AddCircle");
 
         gridLayout->addWidget(AddCircle, 3, 0, 1, 1);
 
-        pushButton_5 = new QPushButton(groupBox);
-        pushButton_5->setObjectName("pushButton_5");
+        AddEllipse = new QPushButton(groupBox);
+        AddEllipse->setObjectName("AddEllipse");
 
-        gridLayout->addWidget(pushButton_5, 4, 0, 1, 1);
+        gridLayout->addWidget(AddEllipse, 2, 0, 1, 1);
+
+        AddRhombus = new QPushButton(groupBox);
+        AddRhombus->setObjectName("AddRhombus");
+
+        gridLayout->addWidget(AddRhombus, 4, 0, 1, 1);
 
         AddRectangle = new QPushButton(groupBox);
         AddRectangle->setObjectName("AddRectangle");
 
         gridLayout->addWidget(AddRectangle, 1, 0, 1, 1);
 
-        AddSquare = new QPushButton(groupBox);
-        AddSquare->setObjectName("AddSquare");
+        AddTriangle = new QPushButton(groupBox);
+        AddTriangle->setObjectName("AddTriangle");
 
-        gridLayout->addWidget(AddSquare, 0, 0, 1, 1);
+        gridLayout->addWidget(AddTriangle, 5, 0, 1, 1);
+
+        AddHexagon = new QPushButton(groupBox);
+        AddHexagon->setObjectName("AddHexagon");
+
+        gridLayout->addWidget(AddHexagon, 6, 0, 1, 1);
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
@@ -176,12 +182,13 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "\320\244\320\270\320\263\321\203\321\200\321\213", nullptr));
-        AddEllipse->setText(QCoreApplication::translate("MainWindow", "\320\236\320\262\320\260\320\273", nullptr));
-        pushButton_4->setText(QCoreApplication::translate("MainWindow", "\320\267\320\262\320\265\320\267\320\264\320\260(6)", nullptr));
-        AddCircle->setText(QCoreApplication::translate("MainWindow", "\320\232\321\200\321\203\320\263", nullptr));
-        pushButton_5->setText(QCoreApplication::translate("MainWindow", "\320\267\320\262\320\265\320\267\320\264\320\260(5)", nullptr));
-        AddRectangle->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\321\217\320\274\320\276\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
         AddSquare->setText(QCoreApplication::translate("MainWindow", "\320\232\320\262\320\260\320\264\321\200\320\260\321\202", nullptr));
+        AddCircle->setText(QCoreApplication::translate("MainWindow", "\320\232\321\200\321\203\320\263", nullptr));
+        AddEllipse->setText(QCoreApplication::translate("MainWindow", "\320\236\320\262\320\260\320\273", nullptr));
+        AddRhombus->setText(QCoreApplication::translate("MainWindow", "\320\240\320\276\320\274\320\261", nullptr));
+        AddRectangle->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\321\217\320\274\320\276\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
+        AddTriangle->setText(QCoreApplication::translate("MainWindow", "\320\242\321\200\320\265\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
+        AddHexagon->setText(QCoreApplication::translate("MainWindow", "\320\250\320\265\321\201\321\202\320\270\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "\320\244\321\203\320\275\320\272\321\206\320\270\320\270", nullptr));
         DeleteFigure->setText(QCoreApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\320\240\320\260\320\267\320\274\320\265\321\200 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));

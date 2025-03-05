@@ -1,26 +1,25 @@
-#include "square.h"
+#include "hexagon.h"
 #include "mainwindow.h"
+#include <cmath>
 
-Square::Square() {}
+Hexagon::Hexagon() {}
 
-
-double Square::getP()
+double Hexagon::getP()
 {
-    return 4 * (Figure::FigureAdress->FigureSize);
+    return 6*FigureSize;
 }
 
-double Square::getS()
+double Hexagon::getS()
 {
-    return (Figure::FigureAdress->FigureSize) * (Figure::FigureAdress->FigureSize);
+    return pow(FigureSize,2) * sqrt(3) / 2.0 * 3.0;
 }
 
-QRectF Square::boundingRect() const
+QRectF Hexagon::boundingRect() const
 {
-    return QRectF(-(FigureSize/2),-(FigureSize/2),FigureSize,FigureSize);
+    return QRectF(-(FigureSize/2),-(FigureSize/4),FigureSize,FigureSize/2);
 }
 
-
-void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Hexagon::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
@@ -28,18 +27,25 @@ void Square::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QW
     QPen pen(Qt::darkCyan, 1);
     painter->setPen(pen);
     painter -> setBrush(Qt::darkMagenta);
-    painter->drawRect(boundingRect());
+    QPointF points[6] = {
+        QPointF(-FigureSize/2, 0),
+        QPointF(-FigureSize/4, -FigureSize/4),
+        QPointF(FigureSize/4, -FigureSize/4),
+        QPointF(FigureSize/2, 0),
+        QPointF(FigureSize/4, FigureSize/4),
+        QPointF(-FigureSize/4, FigureSize/4),
+    };
+    painter->drawPolygon(points, 6);
 
     if (isSelected == true) {
         QPen pen(Qt::red, 1);
         painter->setPen(pen);
         painter -> setBrush(Qt::darkBlue);
-        painter->drawRect(boundingRect());
+        painter->drawPolygon(points,6);
     }
-
 }
 
-void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void Hexagon::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setPos(mapToScene(event -> pos()));
     MainWindow* mainWindow = MainWindow::getMainWindow();
@@ -48,7 +54,7 @@ void Square::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     mainWindow->setValueX(Figure::FigureAdress);
 }
 
-void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Hexagon::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     MainWindow* mainWindow = MainWindow::getMainWindow();
     if (event -> button() == Qt::LeftButton) {
@@ -77,7 +83,7 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
                 center.y() - 2.5,
                 5,5,
                 this
-            );
+                );
             point -> setBrush(Qt::black);
         }
         else
@@ -93,15 +99,8 @@ void Square::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
-void Square::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void Hexagon::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
-
     this -> setCursor(QCursor(Qt::ArrowCursor));
     Q_UNUSED(event);
 }
-
-
-
-
-
-

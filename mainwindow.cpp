@@ -4,6 +4,9 @@
 #include "circle.h"
 #include "rectangle.h"
 #include "ellipse.h"
+#include "rhombus.h"
+#include "triangle.h"
+#include "hexagon.h"
 
 
 MainWindow* MainWindow::mainWindow = nullptr;
@@ -184,7 +187,7 @@ void MainWindow::on_DeleteFigure_clicked()
 void MainWindow::on_AddCircle_clicked()
 {
     circle = new Circle;
-    circle -> setFigureSize(70);
+    circle -> setFigureSize(100);
     MainScene -> addItem(circle);
     circle -> setPos(250,150);
 }
@@ -194,7 +197,7 @@ void MainWindow::on_AddCircle_clicked()
 void MainWindow::on_AddRectangle_clicked()
 {
     rectangle = new Rectangle;
-    rectangle -> setFigureSize(80);
+    rectangle -> setFigureSize(100);
     MainScene -> addItem(rectangle);
     rectangle -> setPos(350,200);
 }
@@ -206,5 +209,32 @@ void MainWindow::on_AddEllipse_clicked()
     ellipse -> setFigureSize(100);
     MainScene -> addItem(ellipse);
     ellipse -> setPos(350,250);
+}
+
+
+void MainWindow::on_AddRhombus_clicked()
+{
+    rhombus = new Rhombus;
+    rhombus -> setFigureSize(100);
+    MainScene -> addItem(rhombus);
+    rhombus -> setPos(150,250);
+}
+
+
+void MainWindow::on_AddTriangle_clicked()
+{
+    triangle = new Triangle;
+    triangle -> setFigureSize(100);
+    MainScene -> addItem(triangle);
+    triangle -> setPos(150,250);
+}
+
+
+void MainWindow::on_AddHexagon_clicked()
+{
+    hexagon = new Hexagon;
+    hexagon -> setFigureSize(100);
+    MainScene -> addItem(hexagon);
+    hexagon        -> setPos(150,250);
 }
 

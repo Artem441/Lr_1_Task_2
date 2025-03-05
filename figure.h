@@ -35,7 +35,6 @@ public:
     virtual void setS(double s); // general
     virtual void setP(double p); // general
     virtual void getFigurePointer(); // general
-    //virtual void setMainWindow(MainWindow* mainWindow);
 
     static Figure* FigureAdress;
 
