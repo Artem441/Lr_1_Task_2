@@ -61,6 +61,9 @@ SOURCES       = ../../circle.cpp \
 		../../rectangle.cpp \
 		../../rhombus.cpp \
 		../../square.cpp \
+		../../star_5.cpp \
+		../../star_6.cpp \
+		../../star_8.cpp \
 		../../triangle.cpp moc_mainwindow.cpp
 OBJECTS       = circle.o \
 		ellipse.o \
@@ -71,6 +74,9 @@ OBJECTS       = circle.o \
 		rectangle.o \
 		rhombus.o \
 		square.o \
+		star_5.o \
+		star_6.o \
+		star_8.o \
 		triangle.o \
 		moc_mainwindow.o
 DIST          = /Users/artembelcikova/Qt/6.8.2/macos/mkspecs/features/spec_pre.prf \
@@ -325,6 +331,9 @@ DIST          = /Users/artembelcikova/Qt/6.8.2/macos/mkspecs/features/spec_pre.p
 		../../rectangle.h \
 		../../rhombus.h \
 		../../square.h \
+		../../star_5.h \
+		../../star_6.h \
+		../../star_8.h \
 		../../triangle.h ../../circle.cpp \
 		../../ellipse.cpp \
 		../../figure.cpp \
@@ -334,6 +343,9 @@ DIST          = /Users/artembelcikova/Qt/6.8.2/macos/mkspecs/features/spec_pre.p
 		../../rectangle.cpp \
 		../../rhombus.cpp \
 		../../square.cpp \
+		../../star_5.cpp \
+		../../star_6.cpp \
+		../../star_8.cpp \
 		../../triangle.cpp
 QMAKE_TARGET  = Paint
 DESTDIR       = 
@@ -894,8 +906,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../../circle.h ../../ellipse.h ../../figure.h ../../hexagon.h ../../mainwindow.h ../../rectangle.h ../../rhombus.h ../../square.h ../../triangle.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../../circle.cpp ../../ellipse.cpp ../../figure.cpp ../../hexagon.cpp ../../main.cpp ../../mainwindow.cpp ../../rectangle.cpp ../../rhombus.cpp ../../square.cpp ../../triangle.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../../circle.h ../../ellipse.h ../../figure.h ../../hexagon.h ../../mainwindow.h ../../rectangle.h ../../rhombus.h ../../square.h ../../star_5.h ../../star_6.h ../../star_8.h ../../triangle.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../../circle.cpp ../../ellipse.cpp ../../figure.cpp ../../hexagon.cpp ../../main.cpp ../../mainwindow.cpp ../../rectangle.cpp ../../rhombus.cpp ../../square.cpp ../../star_5.cpp ../../star_6.cpp ../../star_8.cpp ../../triangle.cpp $(DISTDIR)/
 	$(COPY_FILE) --parents ../../mainwindow.ui $(DISTDIR)/
 
 
@@ -1067,7 +1079,14 @@ hexagon.o: ../../hexagon.cpp ../../hexagon.h \
 		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
 		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
 		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QDoubleSpinBox \
-		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qspinbox.h
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../mainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QSlider \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qslider.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o hexagon.o ../../hexagon.cpp
 
 main.o: ../../main.cpp ../../mainwindow.h \
@@ -1118,7 +1137,11 @@ mainwindow.o: ../../mainwindow.cpp ../../mainwindow.h \
 		../../rectangle.h \
 		../../ellipse.h \
 		../../rhombus.h \
-		../../triangle.h
+		../../triangle.h \
+		../../hexagon.h \
+		../../star_5.h \
+		../../star_6.h \
+		../../star_8.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../../mainwindow.cpp
 
 rectangle.o: ../../rectangle.cpp ../../rectangle.h \
@@ -1210,6 +1233,96 @@ square.o: ../../square.cpp ../../square.h \
 		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QSlider \
 		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qslider.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o square.o ../../square.cpp
+
+star_5.o: ../../star_5.cpp ../../star_5.h \
+		../../figure.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtQuick.framework/Headers/QQuickItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtQuick.framework/Headers/qquickitem.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/qpainter.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/QCursor \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/qcursor.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QStyleOptionGraphicsItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QDoubleSpinBox \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../mainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QSlider \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qslider.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o star_5.o ../../star_5.cpp
+
+star_6.o: ../../star_6.cpp ../../star_6.h \
+		../../figure.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtQuick.framework/Headers/QQuickItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtQuick.framework/Headers/qquickitem.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/qpainter.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/QCursor \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/qcursor.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QStyleOptionGraphicsItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QDoubleSpinBox \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../mainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QSlider \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qslider.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o star_6.o ../../star_6.cpp
+
+star_8.o: ../../star_8.cpp ../../star_8.h \
+		../../figure.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtQuick.framework/Headers/QQuickItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtQuick.framework/Headers/qquickitem.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtCore.framework/Headers/QObject \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtCore.framework/Headers/qobject.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicsitem.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/QPainter \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/qpainter.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsSceneMouseEvent \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicssceneevent.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/QCursor \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtGui.framework/Headers/qcursor.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsScene \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qgraphicsscene.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QStyleOptionGraphicsItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qstyleoption.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QGraphicsEllipseItem \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QDoubleSpinBox \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qspinbox.h \
+		../../mainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QMainWindow \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qmainwindow.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QWidget \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qwidget.h \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/QSlider \
+		/Users/artembelcikova/Qt/6.8.2/macos/lib/QtWidgets.framework/Headers/qslider.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o star_8.o ../../star_8.cpp
 
 triangle.o: ../../triangle.cpp ../../triangle.h \
 		../../figure.h \

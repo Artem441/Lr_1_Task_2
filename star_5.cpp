@@ -1,30 +1,24 @@
-#include "triangle.h"
+#include "star_5.h"
 #include "mainwindow.h"
-#include <cmath>
 
-Triangle::Triangle() {}
+Star_5::Star_5() {}
 
-double Triangle::getP()
+double Star_5::getP()
 {
-    return 3 * FigureSize;
+    return 5.806 * FigureSize;
 }
 
-double Triangle::getS()
+double Star_5::getS()
 {
-    return pow(FigureSize,2) * sqrt(3) / 4.0;
+    return 0.454 * FigureSize * FigureSize;
 }
 
-QRectF Triangle::boundingRect() const
+QRectF Star_5::boundingRect() const
 {
-    return QRectF(
-        -FigureSize / 2,
-        -FigureSize / 2,
-        FigureSize,
-        FigureSize
-        );
+    return QRectF(-FigureSize,-FigureSize,2 * FigureSize, 2 * FigureSize* 0.93);
 }
 
-void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Star_5::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Q_UNUSED(option);
     Q_UNUSED(widget);
@@ -32,21 +26,29 @@ void Triangle::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     QPen pen(Qt::darkCyan, 1);
     painter->setPen(pen);
     painter -> setBrush(Qt::darkMagenta);
-    QPointF points[3] = {
-        QPointF(0, -FigureSize / 4),
-        QPointF(-FigureSize / 2, FigureSize / 4),
-        QPointF(FigureSize / 2, FigureSize / 4)
+    QPointF points[10] = {
+        QPointF(-FigureSize, -0.325*FigureSize),
+        QPointF(-FigureSize * 0.225, -0.325*FigureSize),
+        QPointF(0, -FigureSize),
+        QPointF(FigureSize * 0.225, -0.325*FigureSize),
+        QPointF(FigureSize, -0.325*FigureSize),
+        QPointF(0.375*FigureSize, 0.125*FigureSize),
+        QPointF(0.625*FigureSize, 0.85*FigureSize),
+        QPointF(0, 0.4*FigureSize),
+        QPointF(-0.625*FigureSize, 0.85*FigureSize),
+        QPointF(-0.375*FigureSize, 0.125*FigureSize),
     };
-    painter->drawPolygon(points, 3);
+    painter->drawPolygon(points, 10);
     if (isSelected == true) {
         QPen pen(Qt::red, 1);
         painter->setPen(pen);
         painter -> setBrush(Qt::darkBlue);
-        painter->drawPolygon(points,3);
+        painter->drawPolygon(points,10);
+
     }
 }
 
-void Triangle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+void Star_5::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setPos(mapToScene(event -> pos()));
     MainWindow* mainWindow = MainWindow::getMainWindow();
@@ -55,7 +57,7 @@ void Triangle::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
     mainWindow->setValueX(Figure::FigureAdress);
 }
 
-void Triangle::mousePressEvent(QGraphicsSceneMouseEvent *event)
+void Star_5::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
     MainWindow* mainWindow = MainWindow::getMainWindow();
     if (event -> button() == Qt::LeftButton) {
@@ -100,7 +102,7 @@ void Triangle::mousePressEvent(QGraphicsSceneMouseEvent *event)
     }
 }
 
-void Triangle::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
+void Star_5::mouseReleaseEvent(QGraphicsSceneMouseEvent *event)
 {
     this -> setCursor(QCursor(Qt::ArrowCursor));
     Q_UNUSED(event);

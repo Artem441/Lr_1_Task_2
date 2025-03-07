@@ -16,6 +16,9 @@ class Ellipse;
 class Rhombus;
 class Triangle;
 class Hexagon;
+class Star_5;
+class Star_6;
+class Star_8;
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -72,6 +75,12 @@ private slots:
 
     void on_AddHexagon_clicked();
 
+    void on_AddStar_5_clicked();
+
+    void on_AddStar_6_clicked();
+
+    void on_AddStar_8_clicked();
+
 private:
     Ui::MainWindow *ui;
     QGraphicsScene *MainScene;
@@ -82,6 +91,9 @@ private:
     Rhombus *rhombus;
     Triangle *triangle;
     Hexagon *hexagon;
+    Star_5 *star_5;
+    Star_6 *star_6;
+    Star_8 *star_8;
 
     static MainWindow* mainWindow;
 };

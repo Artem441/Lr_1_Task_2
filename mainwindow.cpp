@@ -7,6 +7,10 @@
 #include "rhombus.h"
 #include "triangle.h"
 #include "hexagon.h"
+#include "star_5.h"
+#include "star_6.h"
+#include "star_8.h"
+
 
 
 MainWindow* MainWindow::mainWindow = nullptr;
@@ -235,6 +239,33 @@ void MainWindow::on_AddHexagon_clicked()
     hexagon = new Hexagon;
     hexagon -> setFigureSize(100);
     MainScene -> addItem(hexagon);
-    hexagon        -> setPos(150,250);
+    hexagon -> setPos(150,250);
+}
+
+
+void MainWindow::on_AddStar_5_clicked()
+{
+    star_5 = new Star_5;
+    star_5 -> setFigureSize(100);
+    MainScene -> addItem(star_5);
+    star_5 -> setPos(150,250);
+}
+
+
+void MainWindow::on_AddStar_6_clicked()
+{
+    star_6 = new Star_6;
+    star_6 -> setFigureSize(100);
+    MainScene -> addItem(star_6);
+    star_6 -> setPos(150,250);
+}
+
+
+void MainWindow::on_AddStar_8_clicked()
+{
+    star_8 = new Star_8;
+    star_8 -> setFigureSize(100);
+    MainScene -> addItem(star_8);
+    star_8 -> setPos(150,250);
 }
 

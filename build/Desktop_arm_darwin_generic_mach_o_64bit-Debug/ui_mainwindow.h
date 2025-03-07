@@ -33,13 +33,16 @@ public:
     QGraphicsView *graphicsView;
     QGroupBox *groupBox;
     QGridLayout *gridLayout;
+    QPushButton *AddStar_5;
+    QPushButton *AddStar_6;
+    QPushButton *AddHexagon;
     QPushButton *AddSquare;
     QPushButton *AddCircle;
     QPushButton *AddEllipse;
     QPushButton *AddRhombus;
     QPushButton *AddRectangle;
     QPushButton *AddTriangle;
-    QPushButton *AddHexagon;
+    QPushButton *AddStar_8;
     QGroupBox *groupBox_2;
     QGridLayout *gridLayout_2;
     QPushButton *DeleteFigure;
@@ -71,9 +74,24 @@ public:
         graphicsView->viewport()->setProperty("cursor", QVariant(QCursor(Qt::CursorShape::PointingHandCursor)));
         groupBox = new QGroupBox(centralwidget);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(900, 320, 158, 351));
+        groupBox->setGeometry(QRect(890, 300, 158, 401));
         gridLayout = new QGridLayout(groupBox);
         gridLayout->setObjectName("gridLayout");
+        AddStar_5 = new QPushButton(groupBox);
+        AddStar_5->setObjectName("AddStar_5");
+
+        gridLayout->addWidget(AddStar_5, 7, 0, 1, 1);
+
+        AddStar_6 = new QPushButton(groupBox);
+        AddStar_6->setObjectName("AddStar_6");
+
+        gridLayout->addWidget(AddStar_6, 8, 0, 1, 1);
+
+        AddHexagon = new QPushButton(groupBox);
+        AddHexagon->setObjectName("AddHexagon");
+
+        gridLayout->addWidget(AddHexagon, 6, 0, 1, 1);
+
         AddSquare = new QPushButton(groupBox);
         AddSquare->setObjectName("AddSquare");
 
@@ -104,10 +122,10 @@ public:
 
         gridLayout->addWidget(AddTriangle, 5, 0, 1, 1);
 
-        AddHexagon = new QPushButton(groupBox);
-        AddHexagon->setObjectName("AddHexagon");
+        AddStar_8 = new QPushButton(groupBox);
+        AddStar_8->setObjectName("AddStar_8");
 
-        gridLayout->addWidget(AddHexagon, 6, 0, 1, 1);
+        gridLayout->addWidget(AddStar_8, 9, 0, 1, 1);
 
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName("groupBox_2");
@@ -152,17 +170,17 @@ public:
         label_4->setGeometry(QRect(910, 140, 41, 41));
         label_5 = new QLabel(centralwidget);
         label_5->setObjectName("label_5");
-        label_5->setGeometry(QRect(900, 210, 71, 41));
+        label_5->setGeometry(QRect(900, 200, 71, 41));
         doubleSpinBox_S = new QDoubleSpinBox(centralwidget);
         doubleSpinBox_S->setObjectName("doubleSpinBox_S");
-        doubleSpinBox_S->setGeometry(QRect(980, 210, 71, 41));
+        doubleSpinBox_S->setGeometry(QRect(980, 200, 71, 41));
         doubleSpinBox_S->setMaximum(62500.000000000000000);
         label_7 = new QLabel(centralwidget);
         label_7->setObjectName("label_7");
-        label_7->setGeometry(QRect(900, 260, 71, 41));
+        label_7->setGeometry(QRect(900, 250, 71, 41));
         doubleSpinBox_P = new QDoubleSpinBox(centralwidget);
         doubleSpinBox_P->setObjectName("doubleSpinBox_P");
-        doubleSpinBox_P->setGeometry(QRect(980, 260, 71, 41));
+        doubleSpinBox_P->setGeometry(QRect(980, 250, 71, 41));
         doubleSpinBox_P->setMaximum(1000.000000000000000);
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
@@ -182,13 +200,16 @@ public:
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         groupBox->setTitle(QCoreApplication::translate("MainWindow", "\320\244\320\270\320\263\321\203\321\200\321\213", nullptr));
+        AddStar_5->setText(QCoreApplication::translate("MainWindow", "\320\227\320\262\320\265\320\267\320\264\320\260(5)", nullptr));
+        AddStar_6->setText(QCoreApplication::translate("MainWindow", "\320\227\320\262\320\265\320\267\320\264\320\260(6)", nullptr));
+        AddHexagon->setText(QCoreApplication::translate("MainWindow", "\320\250\320\265\321\201\321\202\320\270\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
         AddSquare->setText(QCoreApplication::translate("MainWindow", "\320\232\320\262\320\260\320\264\321\200\320\260\321\202", nullptr));
         AddCircle->setText(QCoreApplication::translate("MainWindow", "\320\232\321\200\321\203\320\263", nullptr));
         AddEllipse->setText(QCoreApplication::translate("MainWindow", "\320\236\320\262\320\260\320\273", nullptr));
         AddRhombus->setText(QCoreApplication::translate("MainWindow", "\320\240\320\276\320\274\320\261", nullptr));
         AddRectangle->setText(QCoreApplication::translate("MainWindow", "\320\237\321\200\321\217\320\274\320\276\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
         AddTriangle->setText(QCoreApplication::translate("MainWindow", "\320\242\321\200\320\265\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
-        AddHexagon->setText(QCoreApplication::translate("MainWindow", "\320\250\320\265\321\201\321\202\320\270\321\203\320\263\320\276\320\273\321\214\320\275\320\270\320\272", nullptr));
+        AddStar_8->setText(QCoreApplication::translate("MainWindow", "\320\227\320\262\320\265\320\267\320\264\320\260(8)", nullptr));
         groupBox_2->setTitle(QCoreApplication::translate("MainWindow", "\320\244\321\203\320\275\320\272\321\206\320\270\320\270", nullptr));
         DeleteFigure->setText(QCoreApplication::translate("MainWindow", "\320\243\320\264\320\260\320\273\320\270\321\202\321\214", nullptr));
         label->setText(QCoreApplication::translate("MainWindow", "\320\240\320\260\320\267\320\274\320\265\321\200 \320\276\320\261\321\212\320\265\320\272\321\202\320\260", nullptr));

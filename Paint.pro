@@ -14,6 +14,9 @@ SOURCES += \
     rectangle.cpp \
     rhombus.cpp \
     square.cpp \
+    star_5.cpp \
+    star_6.cpp \
+    star_8.cpp \
     triangle.cpp
 
 # HEADERS
@@ -26,6 +29,9 @@ HEADERS += \
     rectangle.h \
     rhombus.h \
     square.h \
+    star_5.h \
+    star_6.h \
+    star_8.h \
     triangle.h
 
 # UI FORMS
